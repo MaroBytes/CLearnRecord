@@ -2,6 +2,8 @@
 * @ 通讯录
 * @ 功能：存放1000个人的信息，增加、删除、修改、查找、排序
 * @ 细节：名字、年龄、性别、电话、地址
+* @ 更新动态内存管理:通讯录初始化后，能存放三个人的信息
+* @ 空间存满时，增加2个信息
 */ 
 #include "contact.h"
 
@@ -61,6 +63,8 @@ int main()
 			PrintContact(&con);
 			break;
 		case EXIT:
+			//销毁通讯录
+			DestoryContact(&con);
 			printf("退出通讯录\n");
 			break;
 		default:

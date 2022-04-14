@@ -2,16 +2,34 @@
 
 void InitContact(Contact *pc)
 {
+	pc->data = (PeoInfo *)malloc(DEFAULT_SZ * sizeof(PeoInfo));
+	if (pc->data == NULL)
+	{
+		perror("InitContact");
+		return;
+	}
 	pc->sz = 0;
-	memset(pc->data, 0, sizeof(pc->data));
+	pc->capacity = DEFAULT_SZ;
 }
 
 void AddContact(Contact *pc)
 {
-	if (pc->sz == MAX)
+	//考虑增容
+	if (pc->sz == pc->capacity)
 	{
-		printf("通讯录已满，无法添加\n");
-		return;
+		PeoInfo *ptr = realloc(pc->data, (pc->capacity + INC_SZ) * sizeof(PeoInfo));
+		if (ptr != NULL)
+		{
+			pc->data = ptr;
+			pc->capacity += INC_SZ;
+			printf("增容成功\n");
+		}
+		else
+		{
+			perror("AddContact");
+			printf("增加联系人失败");
+			return;
+		}
 	}
 	//增加一个人的信息
 	printf("请输入名字:>");
@@ -139,4 +157,12 @@ void ModifyContact(Contact *pc)
 		scanf("%s", pc->data[pos].addr);
 	}
 	printf("修改成功\n");
+}
+
+void DestoryContact(Contact *pc)
+{
+	free(pc->data);
+	pc->data = NULL;
+	pc->sz = 0;
+	pc->capacity = 0;
 }
