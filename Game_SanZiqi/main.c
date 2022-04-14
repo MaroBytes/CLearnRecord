@@ -65,10 +65,10 @@ int main()
 			return 0;
 		switch (input)
 		{
-		case 1:
+		case PLAY:
 			game();
 			break;
-		case 0:
+		case EXIT:
 			printf("ÍË³öÓÎÏ·\n");
 			break;
 		default:

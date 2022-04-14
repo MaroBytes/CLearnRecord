@@ -13,6 +13,12 @@
 #define ROW 3
 #define COL 3
 
+enum menu
+{
+	EXIT,
+	PLAY
+};
+
 //函数的声明
 
 /*初始化棋盘*/
