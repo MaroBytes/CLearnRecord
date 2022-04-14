@@ -9,6 +9,8 @@ Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "Game_SanZiqi", "Game_SanZiq
 EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "April", "April\April.vcxproj", "{B28FB6B0-1135-447B-B24B-1A714633C293}"
 EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "Contact", "Contact\Contact.vcxproj", "{EB6A9225-50D5-454C-8D58-44D185CCCF4A}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|x64 = Debug|x64
@@ -41,6 +43,14 @@ Global
 		{B28FB6B0-1135-447B-B24B-1A714633C293}.Release|x64.Build.0 = Release|x64
 		{B28FB6B0-1135-447B-B24B-1A714633C293}.Release|x86.ActiveCfg = Release|Win32
 		{B28FB6B0-1135-447B-B24B-1A714633C293}.Release|x86.Build.0 = Release|Win32
+		{EB6A9225-50D5-454C-8D58-44D185CCCF4A}.Debug|x64.ActiveCfg = Debug|x64
+		{EB6A9225-50D5-454C-8D58-44D185CCCF4A}.Debug|x64.Build.0 = Debug|x64
+		{EB6A9225-50D5-454C-8D58-44D185CCCF4A}.Debug|x86.ActiveCfg = Debug|Win32
+		{EB6A9225-50D5-454C-8D58-44D185CCCF4A}.Debug|x86.Build.0 = Debug|Win32
+		{EB6A9225-50D5-454C-8D58-44D185CCCF4A}.Release|x64.ActiveCfg = Release|x64
+		{EB6A9225-50D5-454C-8D58-44D185CCCF4A}.Release|x64.Build.0 = Release|x64
+		{EB6A9225-50D5-454C-8D58-44D185CCCF4A}.Release|x86.ActiveCfg = Release|Win32
+		{EB6A9225-50D5-454C-8D58-44D185CCCF4A}.Release|x86.Build.0 = Release|Win32
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
