@@ -10,11 +10,12 @@ void InitContact(Contact *pc)
 	}
 	pc->sz = 0;
 	pc->capacity = DEFAULT_SZ;
+	//加载文件
+	LoadContact(pc);
 }
 
-void AddContact(Contact *pc)
+void CheckCapacity(Contact *pc)
 {
-	//考虑增容
 	if (pc->sz == pc->capacity)
 	{
 		PeoInfo *ptr = realloc(pc->data, (pc->capacity + INC_SZ) * sizeof(PeoInfo));
@@ -31,6 +32,12 @@ void AddContact(Contact *pc)
 			return;
 		}
 	}
+}
+
+void AddContact(Contact *pc)
+{
+	//考虑增容
+	CheckCapacity(pc);
 	//增加一个人的信息
 	printf("请输入名字:>");
 	scanf("%s", pc->data[pc->sz].name);
@@ -159,10 +166,51 @@ void ModifyContact(Contact *pc)
 	printf("修改成功\n");
 }
 
-void DestoryContact(Contact *pc)
+void DestroyContact(Contact *pc)
 {
 	free(pc->data);
 	pc->data = NULL;
 	pc->sz = 0;
 	pc->capacity = 0;
+}
+
+void SaveContact(Contact *pc)
+{
+	FILE *pf = fopen("contact.dat", "w");
+	if (pf == NULL)
+	{
+		perror("SaveContact");
+		return;
+	}
+	//写文件
+	int i = 0;
+	for (i = 0; i < pc->sz; i++)
+	{
+		fwrite(pc->data + i, sizeof(PeoInfo), 1, pf);
+	}
+	//关闭文件
+	fclose(pf);
+	pf = NULL;
+
+
+}
+
+void LoadContact(Contact *pc)
+{
+	FILE *pf = fopen("contact.dat", "r");
+	if (pf == NULL)
+	{
+		perror("SaveContact");
+		return;
+	}
+	PeoInfo tmp = { 0 };
+	while (fread(&tmp, sizeof(PeoInfo), 1, pf))
+	{
+		// 考虑增容
+		CheckCapacity(pc);
+		pc->data[pc->sz] = tmp;
+		pc->sz++;
+	}
+	fclose(pf);
+	pf = NULL;
 }

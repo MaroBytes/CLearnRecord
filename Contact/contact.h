@@ -64,3 +64,12 @@ void ModifyContact(Contact *pc);
 
 //销毁通讯录
 void DestroyContact(Contact *pc);
+
+//保存通讯录信息到文件
+void SaveContact(Contact *pc);
+
+//加载通讯录文件
+void LoadContact(Contact *pc);
+
+//考虑增容
+void CheckCapacity(Contact *pc);

@@ -5,6 +5,12 @@
 * @ 更新动态内存管理:通讯录初始化后，能存放三个人的信息
 * @ 空间存满时，增加2个信息
 */ 
+
+/*
+*  版本3 新增文件操作
+*  当通讯录退出的时候，把信息写到文件
+*  当通讯录打开的时候，加载文件的信息到通讯录
+*/
 #include "contact.h"
 
 void menu()
@@ -63,8 +69,10 @@ int main()
 			PrintContact(&con);
 			break;
 		case EXIT:
+			//保存信息到文件
+			SaveContact(&con);
 			//销毁通讯录
-			DestoryContact(&con);
+			DestroyContact(&con);
 			printf("退出通讯录\n");
 			break;
 		default:
