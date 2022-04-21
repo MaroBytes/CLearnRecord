@@ -35,7 +35,7 @@ int main()
 struct S
 {
 	int n;
-	int arr[];//指定元素个数未知，称为柔性数组成员
+	int arr[];//指定元素个数未知，称为柔性数组成员 或者arr[0]
 };
 
 int main()
